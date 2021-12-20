@@ -148,6 +148,9 @@ func (g *Generator) printNamesSlice(runs [][]Value, typeName string, runsThresho
 const jsonMethods = `
 // MarshalJSON implements the json.Marshaler interface for %[1]s
 func (i %[1]s) MarshalJSON() ([]byte, error) {
+	if !i.IsA%[1]() {
+		return nil, fmt.Errorf("invalid order type json conversion: %v", i)
+	}
 	return json.Marshal(i.String())
 }
 
