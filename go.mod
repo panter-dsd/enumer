@@ -1,4 +1,4 @@
-module github.com/panter_dsd/enumer
+module github.com/panter-dsd/enumer
 
 require (
 	github.com/pascaldekloe/name v1.0.0
